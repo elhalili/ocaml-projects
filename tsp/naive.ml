@@ -13,12 +13,12 @@ let rec permutations lst =
   | hd :: tl ->
 List.flatten (List.map (insert_everywhere hd) (permutations tl))
 
-let tsp_naive (cities : city list) : route =
+let tsp_naive cities =
   match cities with
-  | [] | [_] -> Route cities
+  | [] | [_] -> cities
   | start :: rest ->
     let perms = permutations rest in
-    let routes = List.map (fun p -> Route (start :: p)) perms in
+    let routes = List.map (fun p -> start :: p) perms in
     List.fold_left
       (fun best r ->
          if calc_route r < calc_route best then r else best)
@@ -26,8 +26,10 @@ let tsp_naive (cities : city list) : route =
   (List.tl routes)
 
 let () =
-  let Route best_path = tsp_naive magic_land in
+  let best_path = tsp_naive magic_land in
+  let shortest_distance = calc_route best_path in
+  let _ = Printf.printf "Shortest distance: %f\n" shortest_distance in
   let f (City (x, y)) =
     Printf.printf "City x: %f, y: %f\n" x y
-  in 
-  List.iter f best_path
+  in List.iter f best_path
+  
