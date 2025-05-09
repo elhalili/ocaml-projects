@@ -17,4 +17,3 @@ let set_cell board x y player : board =
       if row_i = y && col_i = x then Some player else cell
     ) row
   ) board
-

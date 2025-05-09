@@ -1,4 +1,4 @@
 (executable
  (name main)
- (modules types board display main)
+ (modules types board display common minmax main)
  (libraries raylib))
