@@ -60,6 +60,9 @@ dune build
 dune exec ./src/main.exe
 ````
 
+
+
+
 Upon launch, press:
 
 * **1** to play against the pure Minimax AI
@@ -70,6 +73,4 @@ Click to place your `X`, watch the AI respond, and press **R** to restart after 
 ## Demo
 Here is a demo for the game:
 
-![Watch Demo](../assets/minmax-demo.mp4)
-
-
+https://github.com/user-attachments/assets/c874a029-989a-447a-af6b-665306b691db
